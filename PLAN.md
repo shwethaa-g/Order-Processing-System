@@ -59,15 +59,16 @@ A working demo where:
 - [ ] Seed 4–5 products with small stock counts (e.g. 5–10 units) so
       oversell attempts are easy to trigger live in the demo.
 
-### Phase 2 — Prove the concurrency guarantee (1:30–2:00)
-- [ ] Write a quick test/script that fires N concurrent order requests (N >
-      available stock) against one product — e.g. a small `curl` loop, a
-      Postman runner, or a JUnit test using `ExecutorService` +
-      `CountDownLatch`.
-- [ ] Verify: total completed orders' quantities never exceed starting stock,
-      and stock never goes negative in the DB.
-- [ ] This test result is your strongest talking point for judges — screenshot
-      or log it.
+### Phase 2 — Prove the concurrency guarantee (1:30–2:00) — DONE
+- [x] Satisfied by `OrderServiceConcurrencyTest` (built and run as part of
+      Phase 1 to verify `OrderService.submitOrder`'s locking logic), a JUnit
+      test using `ExecutorService` + `CountDownLatch` — no separate
+      script/Postman runner needed.
+- [x] Verified: 10 concurrent order requests against a product seeded with 5
+      units of stock resolved to exactly 5 `COMPLETED` and 5 `FAILED`, ending
+      stock at 0 — never negative, never oversold.
+- [x] This is the strongest talking point for judges — logged via the test
+      run output (see backend git history for the verification commit).
 
 ### Phase 3 — Dashboard (2:00–2:45)
 - [ ] `GET /api/orders` and `GET /api/products` consumed via Axios.
