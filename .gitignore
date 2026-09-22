@@ -1,0 +1,15 @@
+# Java / Maven
+target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# Node / Vite
+node_modules/
+dashboard/dist/
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
