@@ -21,3 +21,4 @@ order:
     pool-size: 8
   retry:
     max-retries: 3
+    fixed-delay-ms: 5000
