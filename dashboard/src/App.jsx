@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { fetchOrders, fetchProducts } from './api';
+import OrdersTable from './components/OrdersTable';
 import './App.css';
 
 const POLL_INTERVAL_MS = 2500;
@@ -37,6 +38,11 @@ function App() {
     };
   }, []);
 
+  const productNameById = useMemo(
+    () => new Map(products.map((p) => [p.id, p.name])),
+    [products]
+  );
+
   return (
     <div className="app">
       <header className="app-header">
@@ -50,7 +56,8 @@ function App() {
       </header>
 
       <section>
-        <p className="muted">{orders.length} orders, {products.length} products loaded.</p>
+        <h2>Orders</h2>
+        <OrdersTable orders={orders} productNameById={productNameById} />
       </section>
     </div>
   );
