@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { fetchOrders, fetchProducts } from './api';
 import OrdersTable from './components/OrdersTable';
 import InventoryTable from './components/InventoryTable';
+import BurstSubmitButton from './components/BurstSubmitButton';
 import './App.css';
 
 const POLL_INTERVAL_MS = 2500;
@@ -55,6 +56,11 @@ function App() {
           )}
         </div>
       </header>
+
+      <section>
+        <h2>Demo: trigger a race</h2>
+        <BurstSubmitButton products={products} />
+      </section>
 
       <section>
         <h2>Orders</h2>

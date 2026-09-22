@@ -21,7 +21,7 @@ public class ProductController {
 
     @GetMapping
     public List<ProductResponse> listProducts() {
-        return productRepository.findAll().stream().map(this::toResponse).toList();
+        return productRepository.findAllByOrderByIdAsc().stream().map(this::toResponse).toList();
     }
 
     @GetMapping("/{id}")
