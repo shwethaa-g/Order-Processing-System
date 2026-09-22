@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { fetchOrders, fetchProducts } from './api';
 import OrdersTable from './components/OrdersTable';
+import InventoryTable from './components/InventoryTable';
 import './App.css';
 
 const POLL_INTERVAL_MS = 2500;
@@ -58,6 +59,11 @@ function App() {
       <section>
         <h2>Orders</h2>
         <OrdersTable orders={orders} productNameById={productNameById} />
+      </section>
+
+      <section>
+        <h2>Inventory</h2>
+        <InventoryTable products={products} />
       </section>
     </div>
   );

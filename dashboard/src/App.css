@@ -99,3 +99,30 @@ section h2 {
 .badge-gray {
   background: #757575;
 }
+
+.row-low-stock {
+  background: #fff8e1;
+}
+
+.row-out-of-stock {
+  background: #ffebee;
+}
+
+.stock-tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #fff;
+}
+
+.stock-tag-low {
+  background: #b8860b;
+}
+
+.stock-tag-out {
+  background: #c62828;
+}
